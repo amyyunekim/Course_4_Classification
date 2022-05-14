@@ -18,7 +18,7 @@ import joblib
 # loading the trained model
 classifier = joblib.load('static/mini_model')
 
-@st.cache(suppress_st_warning=True)
+@st.cache()
   
 ## defining the function which will make the prediction using the data which the user inputs 
 #def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):   
