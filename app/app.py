@@ -5,13 +5,8 @@ To run this app:
 2. Run `streamlit run streamlit_app.py`
 """
 
-import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
-import datetime
-import numpy as np
-import json
-import plotly.graph_objects as go
 import joblib
 
 
@@ -21,35 +16,38 @@ classifier = joblib.load('static/mini_model')
 @st.cache()
   
 ## defining the function which will make the prediction using the data which the user inputs 
-#def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):   
-# 
-#    # Pre-processing user input    
-#    if Gender == "Male":
-#        Gender = 0
-#    else:
-#        Gender = 1
-# 
-#    if Married == "Unmarried":
-#        Married = 0
-#    else:
-#        Married = 1
-# 
-#    if Credit_History == "Unclear Debts":
-#        Credit_History = 0
-#    else:
-#        Credit_History = 1  
-# 
-#    LoanAmount = LoanAmount / 1000
-# 
-#    # Making predictions 
-#    prediction = classifier.predict( 
-#        [[Gender, Married, ApplicantIncome, LoanAmount, Credit_History]])
-#     
-#    if prediction == 0:
-#        pred = 'Rejected'
-#    else:
-#        pred = 'Approved'
-#    return pred
+def prediction(height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_ft,has_superstructure_timber,
+        has_superstructure_mud_mortar_stone):   
+ 
+    # Pre-processing user input    
+    if height_ft_pre_eq == "Male":
+        Gender = 0
+    else:
+        Gender = 1
+ 
+    if Married == "Unmarried":
+        Married = 0
+    else:
+        Married = 1
+ 
+    if Credit_History == "Unclear Debts":
+        Credit_History = 0
+    else:
+        Credit_History = 1  
+ 
+    LoanAmount = LoanAmount / 1000
+ 
+    # Making predictions 
+    prediction = classifier.predict( 
+        [[height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_ft,has_superstructure_timber,
+        has_superstructure_mud_mortar_stone]]
+        )            
+     
+    if prediction == 0:
+        pred = 'Rejected'
+    else:
+        pred = 'Approved'
+    return pred
       
   
 # this is the main function in which we define our webpage  
