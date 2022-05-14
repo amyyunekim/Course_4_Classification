@@ -12,9 +12,9 @@ import pickle
 
 
 # loading the trained model
-#classifier = joblib.load('static/mini_model')
+classifier = joblib.load('static/mini_model')
 # load the model from disk
-classifier = pickle.load(open('minimodel.sav', 'rb'))
+#classifier = pickle.load(open('minimodel.sav', 'rb'))
 
 @st.cache()
   
