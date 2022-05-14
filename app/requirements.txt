@@ -1,13 +1,4 @@
-streamlit==0.86.0
-matplotlib
-numpy
+streamlit
 pandas
-scikit-learn
-geopandas
-google
-datetime
-shapely
-plotly
-altair
-protobuf
+joblib
 
