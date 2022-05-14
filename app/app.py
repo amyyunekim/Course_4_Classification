@@ -8,10 +8,13 @@ To run this app:
 import pandas as pd
 import streamlit as st
 import joblib
+import pickle
 
 
 # loading the trained model
-classifier = joblib.load('static/mini_model')
+#classifier = joblib.load('static/mini_model')
+# load the model from disk
+classifier = pickle.load(open('static/minimodel.sav', 'rb'))
 
 @st.cache()
   
