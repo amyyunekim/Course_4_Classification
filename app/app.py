@@ -20,42 +20,31 @@ def prediction(height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_
         has_superstructure_mud_mortar_stone):   
  
     # Pre-processing user input    
-    if height_ft_pre_eq == "Male":
-        Gender = 0
+    if has_superstructure_timber == 0:
+        has_superstructure_timberTimber = 0
     else:
-        Gender = 1
+        has_superstructure_timber = 1
  
-    if Married == "Unmarried":
-        Married = 0
+    if has_superstructure_mud_mortar_stone ==0 :
+        has_superstructure_mud_mortar_stone = 0
     else:
-        Married = 1
- 
-    if Credit_History == "Unclear Debts":
-        Credit_History = 0
-    else:
-        Credit_History = 1  
- 
-    LoanAmount = LoanAmount / 1000
+        has_superstructure_mud_mortar_stone = 1  
  
     # Making predictions 
     prediction = classifier.predict( 
         [[height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_ft,has_superstructure_timber,
         has_superstructure_mud_mortar_stone]]
         )            
-     
-    if prediction == 0:
-        pred = 'Rejected'
-    else:
-        pred = 'Approved'
-    return pred
-      
+
+    pred = prediction
+    return pred 
   
 # this is the main function in which we define our webpage  
 def main():       
     # front end elements of the web page 
     html_temp = """ 
-    <div style ="background-color:yellow;padding:13px"> 
-    <h1 style ="color:black;text-align:center;">Streamlit Loan Prediction ML App</h1> 
+    <div style ="background-color:#CBC3E3;padding:13px"> 
+    <h1 style ="color:black;text-align:center;">Predicting building damage for Nepal</h1> 
     </div> 
     """
       
@@ -63,18 +52,20 @@ def main():
     st.markdown(html_temp, unsafe_allow_html = True) 
       
     # following lines create boxes in which user can enter data required to make prediction 
-    Gender = st.selectbox('Gender',("Male","Female"))
-    Married = st.selectbox('Marital Status',("Unmarried","Married")) 
-    ApplicantIncome = st.number_input("Applicants monthly income") 
-    LoanAmount = st.number_input("Total loan amount")
-    Credit_History = st.selectbox('Credit_History',("Unclear Debts","No Unclear Debts"))
+    height_ft_pre_eq = st.number_input('Building Height in ft')
+    count_floors_pre_eq = st.number_input('Number of floors') 
+    age_building = st.number_input("Building Age") 
+    plinth_area_sq_ft = st.number_input("Area in square feet")
+    has_superstructure_timber = st.selectbox('Has timber superstructure?',("No","Yes"))
+    has_superstructure_mud_mortar_stone = st.selectbox('Has mud/mortar/stone superstructure?',('No','Yes'))
     result =""
       
- #   # when 'Predict' is clicked, make the prediction and store it 
- #   if st.button("Predict"): 
- #       result = prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History) 
- #       st.success('Your loan is {}'.format(result))
- #       print(LoanAmount)
+    # when 'Predict' is clicked, make the prediction and store it 
+    if st.button("Predict"): 
+        result = prediction(height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_ft,has_superstructure_timber,
+        has_superstructure_mud_mortar_stone) 
+        st.success('Your likely damage grade is {}'.format(result))
+        print(result)
      
 if __name__=='__main__': 
     main()
