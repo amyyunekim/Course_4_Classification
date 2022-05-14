@@ -1,12 +1,24 @@
+"""
+To run this app:
 
-import pickle
+1. cd into this directory
+2. Run `streamlit run streamlit_app.py`
+"""
+
+import matplotlib.pyplot as plt
+import pandas as pd
 import streamlit as st
- 
+import datetime
+import numpy as np
+import json
+import plotly.graph_objects as go
+import joblib
+
+
 # loading the trained model
-#pickle_in = open('static/classifier.pkl', 'rb') 
-#classifier = pickle.load(pickle_in)
- 
-@st.cache()
+classifier = joblib.load('static/mini_model')
+
+#@st.cache()
   
 ## defining the function which will make the prediction using the data which the user inputs 
 #def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):   
