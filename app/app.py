@@ -41,14 +41,30 @@ def prediction(height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_
         )            
 
     pred = prediction
-    return pred 
-  
+
+    return pred[0] 
+
+def descriptor (pred): 
+
+    if pred =='Grade 5' :
+        desc= "total or near collapse of the building"
+    if pred =='Grade 4':
+        desc= "walls collapse, partial structural failure of floor/roof"
+    if pred =='Grade 3':
+        desc ="large and extensive cracks in most walls, load capacity of structure is reduced"
+    if pred =='Grade 2':
+       desc= "cracks in many walls, damage to non structural parts"
+    else:
+        desc ="hairline to thin cracks in plaster on few walls" 
+        
+    return desc  
+
 # this is the main function in which we define our webpage  
 def main():       
     # front end elements of the web page 
     html_temp = """ 
     <div style ="background-color:#CBC3E3;padding:13px"> 
-    <h1 style ="color:black;text-align:center;">Predicting building damage for Nepal</h1> 
+    <h1 style ="color:black; font-size: 32px;text-align:center;">Predicting building damage for Nepal</h1> 
     </div> 
     """
       
@@ -66,10 +82,16 @@ def main():
       
     # when 'Predict' is clicked, make the prediction and store it 
     if st.button("Predict"): 
-        result = prediction(height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_ft,has_superstructure_timber,
+
+        pred = prediction(height_ft_pre_eq,count_floors_pre_eq,age_building,plinth_area_sq_ft,has_superstructure_timber,
         has_superstructure_mud_mortar_stone) 
-        st.success('Your likely damage grade is {}'.format(result))
-        print(result)
-     
+        desc = descriptor(pred)
+
+        st.success('Your likely damage grade is {}: {}'.format(pred,desc))
+        #st.success('Your likely damage grade is {}'.format(desc))
+
+        print(pred)
+        print(desc)
+        
 if __name__=='__main__': 
     main()
