@@ -22,7 +22,7 @@ def space(num_lines=1):
 # load model ####################################################
 
 # loading the trained model
-classifier = joblib.load('mini_model')
+classifier = joblib.load('app/mini_model')
 # load the model from disk
 #classifier = pickle.load(open('minimodel.sav', 'rb'))
 
@@ -86,7 +86,7 @@ def main():
     st.markdown(html_temp, unsafe_allow_html = True) 
 
     space (2)
-     
+
     # following lines create boxes in which user can enter data required to make prediction 
     height_ft_pre_eq = st.number_input('Building Height in ft')
     count_floors_pre_eq = st.number_input('Number of floors') 
