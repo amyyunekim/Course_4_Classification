@@ -2,7 +2,7 @@
 To run this app:
 
 1. cd into this directory
-2. Run `streamlit run streamlit_app.py`
+2. Run `streamlit run app.py`
 """
 
 import pandas as pd
@@ -11,11 +11,23 @@ import joblib
 import pickle
 
 
+# formatting ###################################################
+
+def space(num_lines=1):
+    """Adds empty lines to the Streamlit app."""
+    for _ in range(num_lines):
+        st.write("")
+
+
+# load model ####################################################
 
 # loading the trained model
-classifier = joblib.load('app/mini_model')
+classifier = joblib.load('mini_model')
 # load the model from disk
 #classifier = pickle.load(open('minimodel.sav', 'rb'))
+
+
+# create app ##########################################################
 
 @st.cache()
   
@@ -72,7 +84,9 @@ def main():
       
     # display the front end aspect
     st.markdown(html_temp, unsafe_allow_html = True) 
-      
+
+    space (2)
+     
     # following lines create boxes in which user can enter data required to make prediction 
     height_ft_pre_eq = st.number_input('Building Height in ft')
     count_floors_pre_eq = st.number_input('Number of floors') 
