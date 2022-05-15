@@ -9,7 +9,7 @@ import pandas as pd
 import streamlit as st
 import joblib
 import pickle
-import sklearn
+
 
 
 # loading the trained model
