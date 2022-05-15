@@ -9,3 +9,4 @@ Project_writeup.md
 /models
 ~$preliminary_results.xlsx
 /app/app_test.py
+/app/mini_model.ipynb

@@ -48,14 +48,16 @@ def descriptor (pred):
 
     if pred =='Grade 5' :
         desc= "total or near collapse of the building"
-    if pred =='Grade 4':
+    elif pred =='Grade 4':
         desc= "walls collapse, partial structural failure of floor/roof"
-    if pred =='Grade 3':
+    elif pred =='Grade 3':
         desc ="large and extensive cracks in most walls, load capacity of structure is reduced"
-    if pred =='Grade 2':
+    elif pred =='Grade 2':
        desc= "cracks in many walls, damage to non structural parts"
-    else:
+    elif pred =='Grade 1':
         desc ="hairline to thin cracks in plaster on few walls" 
+    else:
+        desc =""
         
     return desc  
 
