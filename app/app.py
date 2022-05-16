@@ -91,7 +91,7 @@ def main():
     height_ft_pre_eq = st.number_input('Building Height in ft')
     count_floors_pre_eq = st.number_input('Number of floors') 
     age_building = st.number_input("Building Age") 
-    plinth_area_sq_ft = st.number_input("Area in square feet")
+    plinth_area_sq_ft = st.number_input("Plinth area in square feet")
     has_superstructure_timber = st.selectbox('Has timber superstructure?',("No","Yes"))
     has_superstructure_mud_mortar_stone = st.selectbox('Has mud/mortar/stone superstructure?',('No','Yes'))
     result =""

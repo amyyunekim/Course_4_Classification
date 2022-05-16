@@ -10,3 +10,5 @@ Project_writeup.md
 ~$preliminary_results.xlsx
 /app/app_test.py
 /app/mini_model.ipynb
+Ensemble_Methods.ipynb
+eq_model_copy.ipynb
