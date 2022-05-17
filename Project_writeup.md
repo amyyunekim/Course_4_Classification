@@ -3,12 +3,12 @@
 ## Predicting Earthquake Damage		
 
 ### Abstract:
-Following the 7.8 Mw Gorkha Earthquake on April 25, 2015, Nepal carried out a massive household survey for 11 severely affected districts which covered all buildings in these districts to assess building damage. This project uses building features to predict the level of building damage sustained from Grade 1 to 5. A number of machine learning models were trialled to solve this multiclass problem. The chosen model was a Random Forest Classification model with a F1 micro score of 0.4435. A proof of concept model was deployed in Streamlit.
+Following the 7.8 Mw Gorkha Earthquake on April 25, 2015, Nepal carried out a massive household survey for 11 severely affected districts which covered all buildings in these districts to assess building damage. This project uses building features to predict the level of building damage sustained from Grade 1 to 5. A number of machine learning models were trialled to solve this multiclass problem. The chosen model was a Random Forest Classification model with a F1 micro score of 0.4470. A proof of concept model was deployed in Streamlit.
 
 ### Design: 
 A logistic regression model was created as a baseline. A binary model was also considered at the start however was discarded as the cost of missing a prediction was too high. 
 
-4 classification models were evaluated against each other using a log loss score. 3 regression models were evaluated against each other using a root mean squared error (RMSE) score. Finally, the 2 winning models were compared using a F1 score. F1 was chosen as we wanted to consider both recall and precision in this problem to minimize missing both high damage as well as low damage predictions. An ensemble model was also considered however it did not perform as well as the 2 final models. The Random Forest Classification model had the highest F1 score and was the final selected model.
+Classification models were evaluated against each other using a log loss score. Regression models were evaluated against each other using a root mean squared error (RMSE) score. Finally, the 2 winning models were compared using a F1 score. F1 was chosen as we wanted to consider both recall and precision in this problem to minimize missing both high damage as well as low damage predictions. An ensemble model was also considered however it did not perform as well as the 2 final models. The Random Forest Classification model had the highest F1 score and was the final selected model.
 
 ### Data:
 The dataset was sourced from a kaggle [site](https://www.kaggle.com/code/ar89dsl/predicting-building-damage-from-earthquakes/data). This project focused on building construction and occupancy data to predict damage. The relevant tables were taken and stored in a relational SQLite database. The final dataset included 762,106 rows of building data with 42 features, of which 7 were categorical features. 
@@ -74,7 +74,7 @@ Holdout scores
 ### Tools:
 - SQLite database for storage
 - SQL alchemy for ingestion into Python
-- Pandas, numpy for EDA and data manipulation
+- Pandas, numpy & geopandas for EDA and data manipulation
 - Sklearn and XgBoost for modelling
 - Seaborn and Matplotlib for vizualisations
 - Streamlit for model deployment
