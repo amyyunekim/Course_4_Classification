@@ -18,7 +18,7 @@ The target was a building damage grade from Grade 1 to Grade 5 (the full descrip
 ### Algorithms:
 
 
-<i> Pre modelling:</i>
+<i> <b>Pre modelling:</b></i>
 
 Feature Engineering: 
 - Kept "a priori" features only i.e. dropped height post earthquake, floors post earthquake, location data
@@ -26,8 +26,7 @@ Feature Engineering:
 
 Class imbalance: Treated class imbalance toward higher damage grades with SMOTE oversampling.
 
-<br>
-<i> Model Evaluation </i>
+<i> <b>Model Evaluation</b> </i>
 <br>
 
 The entire dataset was split into a 80/20 train vs holdout and all scores reported were calculated with 3-fold cross validation on the training portion only.
