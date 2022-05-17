@@ -14,7 +14,6 @@ Classification models were evaluated against each other using a log loss score. 
 The dataset was sourced from a kaggle [site](https://www.kaggle.com/code/ar89dsl/predicting-building-damage-from-earthquakes/data). This project focused on building construction and occupancy data to predict damage. The relevant tables were taken and stored in a relational SQLite database. The final dataset included 762,106 rows of building data with 42 features, of which 7 were categorical features. 
 The target was a building damage grade from Grade 1 to Grade 5 (the full description of the damage grading can be found [here](http://eq2015.npc.gov.np/docs/#/faqs/faqs)).
 
-<br>
 
 ### Algorithms:
 
@@ -29,8 +28,12 @@ Class imbalance: Treated class imbalance toward higher damage grades with SMOTE 
 
 <br>
 <i> Model Evaluation </i>
+<br>
 
 The entire dataset was split into a 80/20 train vs holdout and all scores reported were calculated with 3-fold cross validation on the training portion only.
+
+
+<table><tr><td>
 
 | Classification Model| Log Loss Score|
 | ------------------- | ---------------|
@@ -40,6 +43,7 @@ The entire dataset was split into a 80/20 train vs holdout and all scores report
 |<b>Random Forest Classifer (SMOTE) |<b>1.2410| 
 |XGBoost Classifier (SMOTE)| 1.2740 | 
 
+</td><td>
 
 | Regression Model| RMSE Score|
 | --------------- | ---------------|
@@ -48,10 +52,9 @@ The entire dataset was split into a 80/20 train vs holdout and all scores report
 |<b>Random Forest Regressor (SMOTE) |<b>0.9977| 
 |XGBoost Regressor (SMOTE)| 1.0210 |  |
 
+</td></tr> </table>
 
 Random Forest Classifier (SMOTE) and Random Forest Regressor (SMOTE) performed best in their respective categories. An ensemble model was also considered however it fell short of the final two models scores. Finally when comparing the two, Random Forest Classifier (SMOTE) performed better than the Random Forest Regressor (SMOTE) (F1 micro score of 0.5427 vs 0.4267). 
-
-<br>
 
 ### Final results:
 
@@ -61,7 +64,7 @@ Training scores
 
 - F1 0.5427 micro, 0.5366 macro
 - Precision 0.5427 micro, 0.5427 macro
-- recall 0.5427 micro, 0.5639 macro
+- Recall 0.5427 micro, 0.5639 macro
 
 Holdout scores
 
@@ -69,7 +72,6 @@ Holdout scores
 - Precision: 0.4470 micro, 0.4187 macro
 - Recall: 0.4470 micro, 0.4039 macro
 
-<br>
 
 ### Tools:
 - SQLite database for storage
