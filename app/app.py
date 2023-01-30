@@ -22,7 +22,7 @@ def space(num_lines=1):
 # load model ####################################################
 
 # loading the trained model
-classifier = joblib.load('app/mini_model')
+classifier = joblib.load('mini_model')
 # load the model from disk
 #classifier = pickle.load(open('minimodel.sav', 'rb'))
 
